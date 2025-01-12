@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Tugas Project PWEB 1 | Hotelku.com</title>
+  </head>
+  <body>
+    <!-- Logo kiri -- remixicon.css -->
+    <nav>
+      <div class="nav__logo" onclick="window.location.href='login.html'"> 
+        <i class="ri-hotel-fill" ></i>   Hotelku.com
+      </div>
+      <!-- end -->
+
+      <!-- hamburger menu -- untuk mobile -->
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <!-- end -->
+      <!-- Navbar link -- sebelah kanan -->
+      <ul class="nav__links">
+        <li class="link" onclick="window.location.href='index.html'"><a href="#home">Home</a></li>
+        <li class="link" ><a href="#rooms">Rooms</a></li>
+        <li class="link" ><a href="#about">Dining</a></li>
+        <li class="link" ><a href="#Facilities">Facilities</a></li>
+        <li class="link" onclick="openPopup()"><a href="#Booking">Booking</a></li>
+        <li class="link" onclick="window.location.href='login.html'"><a href="#Login">Login</a></li>
+      <!-- end -->
+      <!-- Darkmode Button -->
+        <input type="checkbox" id="tombol">
+          <div class="nav__button">
+            <label class="button" for="tombol" id="tombol">
+              <div class="circle">
+                <svg class="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z" />
+                </svg>
+                <svg class="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9 8.97 8.97 0 0 0 3.463-.69.75.75 0 0 1 .981.98 10.503 10.503 0 0 1-9.694 6.46c-5.799 0-10.5-4.7-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 0 1 .818.162Z" clip-rule="evenodd" />
+                </svg>                               
+              </div>
+            </label>
+          </div>  
+      </ul>
+    </nav>    
+    <!-- end -->
+
+    <style>
+        body{
+            background-color: var(--white);
+            }
+
+        h1{
+            color: var(--text-dark);
+        }
+
+        strong , p{
+            color: var(--text-dark);
+        }
+
+        .right__div select option{
+            background-color: var(--white);
+            color: var(--text-primary-color);
+            padding: 1rem;
+            font-size: 1rem;
+            border: none;
+            text-align: left;
+        }
+
+        .centered-div {
+            width: 80%;
+            padding: 20px;
+            background-color: var(--book-container);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            gap: 20px;
+        }
+
+        .left__div {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .left__div img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .right__div {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        label {
+            font-size: 1rem;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .resume-item {
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            padding: 1rem 3rem;
+            outline: none;
+            border: none;
+            font-size: 1rem;
+            color: white;
+            background-color: var(--primary-color);
+            border-radius: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-color-dark);
+        }
+
+        #container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        #container img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+
+<div class="centered-div">
+    <div class="left__div">
+        <img src="assets/ballroom.jpg" alt="Gambar yang ingin ditampilkan" id="gambar_kamar"/>
+    </div>
+
+    <div class="right__div">
+        <h1>Rincian Pemesanan</h1>
+        <div class="resume-item">
+            <strong>Nama Pemesan :</strong>
+            <p id="nama_pemesan"></p>
+        </div>
+        <div class="resume-item">
+            <strong>Jenis Kelamin :</strong>
+            <p id="jenis_kelamin"></p>
+        </div>
+        <div class="resume-item">
+            <strong>No Identitas :</strong>
+            <p id="no_identitas"></p>
+        </div>
+        <div class="resume-item">
+            <strong>Tipe Kamar :</strong>
+            <p id="tipe_kamar"></p>
+        </div>
+        <div class="resume-item">
+            <strong>Harga Kamar :</strong>
+            <p id="harga_kamar"></p>
+        </div>
+        <div class="resume-item">
+            <strong>Tanggal Pemesanan:</strong>
+            <p id="tanggal_pesan"></p>
+        </div>
+        <div class="resume-item">
+            <strong>Durasi Menginap :</strong>
+            <p id="durasi_menginap"></p>
+        </div>
+        <div class="resume-item">
+            <strong>Breakfast :</strong>
+            <p id="breakfast"></p>
+        </div>
+        <div class="resume-item">
+            <strong>Total Harga :</strong>
+            <p id="total_tagihan"></p>
+        </div>
+    
+        <button class="btn" onclick="window.location.href='index.html'" onclick="clearData()">Selesai</button>
+    </div>
+    
+    
+</div>
+
+<script>
+    function getQueryParams() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return {
+            nama_pemesan: urlParams.get('nama_pemesan'),
+            jenis_kelamin: urlParams.get('jenis_kelamin'),
+            no_identitas: urlParams.get('no_identitas'),
+            tipe_kamar: urlParams.get('tipe_kamar'),
+            harga: urlParams.get('harga'),
+            tanggal_pesan: urlParams.get('tanggal_pesan'),
+            durasi_menginap: urlParams.get('durasi_menginap'),
+            total_tagihan: urlParams.get('total_tagihan'),
+            breakfast: urlParams.get('breakfast')
+        };
+    }
+
+    // Mengambil data dari URL dan menampilkan di halaman
+    window.onload = function() {
+        const params = getQueryParams();
+
+        // Menampilkan data di elemen yang sesuai
+        document.getElementById('nama_pemesan').textContent = params.nama_pemesan || 'N/A';
+        document.getElementById('jenis_kelamin').textContent = params.jenis_kelamin || 'N/A';
+        document.getElementById('no_identitas').textContent = params.no_identitas || 'N/A';
+        document.getElementById('tipe_kamar').textContent = params.tipe_kamar || 'N/A';
+        document.getElementById('harga_kamar').textContent = params.harga || 'N/A';  // Menampilkan harga kamar langsung dari URL
+        document.getElementById('tanggal_pesan').textContent = params.tanggal_pesan || 'N/A';
+        document.getElementById('durasi_menginap').textContent = params.durasi_menginap || 'N/A';
+
+        // Menampilkan apakah sarapan dipilih atau tidak
+        if (params.breakfast) {
+            document.getElementById('breakfast').textContent = `Sarapan dipilih (Rp. ${params.breakfast} / Hari)`; // Menampilkan harga sarapan langsung dari URL
+        } else {
+            document.getElementById('breakfast').textContent = 'Sarapan tidak dipilih';
+        }
+
+        // Menampilkan total tagihan dengan format yang sudah ada di URL
+        document.getElementById('total_tagihan').textContent = params.total_tagihan || 'N/A'; // Menampilkan total tagihan langsung dari URL
+    
+        const tipeKamar = params.tipe_kamar;
+        const imageElement = document.getElementById('gambar_kamar');
+
+        if (tipeKamar) {
+            imageElement.src = `assets/${tipeKamar}.avif`; // Mengubah gambar sesuai dengan tipe kamar
+        } else {
+            imageElement.src = 'default.jpg'; // Gambar default jika tipe kamar tidak ditemukan
+        }
+    
+    };
+</script>
+
+
+        
+
+</body>
+</html>

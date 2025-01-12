@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Tugas Project PWEB 1 | Hotelku.com</title>
+  </head>
+  <body>
+    <!-- Logo kiri -- remixicon.css -->
+    <nav>
+      <div class="nav__logo" onclick="window.location.href='login.html'"> 
+        <i class="ri-hotel-fill" ></i>   Hotelku.com
+      </div>
+    <!-- end -->
+
+      <!-- hamburger menu -- untuk mobile -->
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <!-- end -->
+      <!-- Navbar link -- sebelah kanan -->
+      <ul class="nav__links">
+        <li class="link" onclick="window.location.href='index.html'"><a href="#home">Home</a></li>
+        <li class="link" ><a href="#rooms">Rooms</a></li>
+        <li class="link" ><a href="#about">Dining</a></li>
+        <li class="link" ><a href="#Facilities">Facilities</a></li>
+        <li class="link" onclick=""><a href="#Booking">Booking</a></li>
+        <li class="link" onclick="window.location.href='login.html'"><a href="#Login">Login</a></li>
+      <!-- end -->
+      <!-- Darkmode Button -->
+        <input type="checkbox" id="tombol">
+          <div class="nav__button">
+            <label class="button" for="tombol" id="tombol">
+              <div class="circle">
+                <svg class="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z" />
+                </svg>
+                <svg class="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9 8.97 8.97 0 0 0 3.463-.69.75.75 0 0 1 .981.98 10.503 10.503 0 0 1-9.694 6.46c-5.799 0-10.5-4.7-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 0 1 .818.162Z" clip-rule="evenodd" />
+                </svg>                               
+              </div>
+            </label>
+          </div>  
+      </ul>
+    </nav>    
+    <!-- end -->
+
+    <style>
+
+        body{
+            background-color: var(--white);
+            }
+
+        h1{
+            color: var(--text-dark);
+        }
+
+        .right__div select option{
+            background-color: var(--white);
+            color: var(--text-primary-color);
+            padding: 1rem;
+            font-size: 1rem;
+            border: none;
+            text-align: left;
+        }
+
+        /* Menata div utama */
+        /* Menata div utama */
+        .centered-div {
+            width: 80%; /* Lebar div */
+            padding: 20px; /* Jarak dalam div */
+            background-color: var(--book-container); /* Warna latar menggunakan variabel */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Bayangan */
+            border-radius: 10px; /* Sudut melengkung */
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex; /* Flexbox untuk penataan */
+            justify-content: space-between; /* Membuat ruang antara dua div */
+            align-items: stretch; /* Memastikan tinggi div kiri dan kanan sama */
+            gap: 20px; /* Jarak antar div kiri dan kanan */
+            margin: 50px auto 0 auto; /* Tambahkan margin atas untuk memberi jarak dengan navbar */
+        }
+
+    
+        /* Styling untuk Left Div */
+        .left__div {
+            /* background-color: var(--white); Warna latar div kiri */
+            flex: 1; /* Menyusun ukuran div kiri untuk sama dengan kanan */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    
+        /* Gambar di dalam Left Div */
+        .left__div img {
+            width: 100%; /* Membuat gambar memenuhi lebar div */
+            height: 100%; /* Membuat gambar memenuhi tinggi div */
+            object-fit: cover; /* Mengisi div dengan menjaga rasio gambar */
+            border-radius: 8px;
+        }
+    
+        /* Styling untuk Right Div (form) */
+        .right__div {
+            /* background-color: var(--white); Warna latar div kanan */
+            flex: 1; /* Menyusun ukuran div kanan untuk sama dengan kiri */
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+    
+        /* Styling untuk label */
+        label {
+            font-size: 1rem;
+            color: var(--text-dark); /* Warna teks label */
+            margin-bottom: 5px;
+        }
+    
+        .form-group {
+            margin-bottom: 15px;
+        }
+    
+        input[type="text"],
+        input[type="date"],
+        input[type="number"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid var(--text-light); /* Menggunakan warna text-light untuk border */
+            background-color: transparent; 
+            margin-top: 5px;
+            font-size: 1rem;
+            color: var(--text-dark); /* Warna teks input */
+        }
+    
+        input[type="text"]:focus,
+        input[type="date"]:focus,
+        input[type="number"]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--primary-color); /* Warna border saat fokus */
+            outline: none; /* Menghilangkan outline */
+            box-shadow: 0 0 5px var(--primary-color); /* Efek bayangan saat fokus */
+        }
+    
+        .btn {
+            padding: 1rem 3rem;
+            outline: none;
+            border: none;
+            font-size: 1rem;
+            color: white; /* Warna teks tombol menggunakan variabel */
+            background-color: var(--primary-color); /* Menggunakan warna utama */
+            border-radius: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-right: 0.5rem;
+        }
+    
+        .btn:hover {
+            background-color: var(--primary-color-dark); /* Warna saat hover */
+        }
+
+        .btn2 {
+            padding: 1rem 3rem;
+            outline: none;
+            border: none;
+            font-size: 1rem;
+            color: white; /* Warna teks tombol menggunakan variabel */
+            background-color: rgba(0, 0, 0, 0.4); /* Menggunakan warna utama */
+            border-radius: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-right: 0.5rem;
+        }
+    
+        .btn2:hover {
+            background-color: rgba(0, 0, 0, 0.8); /* Warna saat hover */
+        }
+    
+        /* Container utama */
+        #container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px; /* Jarak antara form dan gambar */
+            margin-top: 20px;
+        }
+    
+        #container img {
+            max-width: 100%;
+            height: auto;
+        }
+    
+        /* Media query untuk layar lebih kecil dari 768px */
+        @media (max-width: 900px) {
+            .centered-div {
+                width: 90%; /* Mengurangi lebar untuk perangkat kecil */
+                flex-direction: column;  /* Mengubah arah elemen menjadi kolom (atas-bawah) */
+                align-items: center;     /* Menyelaraskan form dan gambar ke tengah */
+                margin-top: 0px;
+                gap: 0px;
+                
+            }
+    
+            .left__div {
+                width: 100%; /* Menjadikan gambar memenuhi lebar layar */
+                margin-bottom: 20px;  /* Memberikan jarak di bawah gambar */
+            }
+    
+            .right__div {
+                width: 100%; /* Menjadikan form memenuhi lebar layar */
+            }
+    
+            /* Menyesuaikan gambar agar tidak terlalu besar */
+            .left__div img {
+                width: 100%;  /* Memastikan gambar memenuhi lebar layar */
+                height: auto; /* Menjaga rasio gambar */
+            }
+    
+            /* Membuat form dan tombol lebih rapat dan lebih mudah diakses di layar kecil */
+            .form-group {
+                margin-bottom: 10px;
+            }
+    
+            .btn {
+                width: 100%; /* Tombol memanjang agar mudah diklik */
+                padding: 15px; /* Menambahkan padding pada tombol */
+                margin: 0.5rem 0px;
+            }
+
+        }
+    
+        /* Media query untuk layar lebih kecil dari 480px (ponsel kecil) */
+        @media (max-width: 480px) {
+            .centered-div {
+                width: 95%; /* Mengurangi lebar lagi pada perangkat lebih kecil */
+                padding: 10px;
+                margin-top: 0px;
+                gap: 0px;
+            }
+    
+            .left__div img {
+                width: 100%;
+                height: auto;
+            }
+    
+            .right__div {
+                width: 100%;
+            }
+    
+            .btn {
+                width: 100%;
+                padding: 12px;
+            }
+        }
+    </style>
+    
+    
+    <div class="centered-div">
+        <!-- Left Section -->
+        <div class="left__div">
+            <img src="assets/Standard.avif" alt="Gambar yang ingin ditampilkan" id="gambar_kamar"/>
+        </div>
+    
+        <!-- Right Section -->
+        <div class="right__div">
+            <h1>Formulir Pemesanan</h1>
+            <form method="GET" action="resume-pemesanan.html" class="bookingForm2" onsubmit="submitForm()">
+                <div class="form__group">
+                    <label for="nama_pemesan">Nama Pemesan:</label>
+                    <input type="text" class="form-control" id="nama_pemesan" name="nama_pemesan" required>
+                </div>
+                <div class="form-group">
+                    <label for="jenis_kelamin">Jenis Kelamin:</label>
+                    <select class="form-control" id="jenis_kelamin" name="jenis_kelamin" required>
+                        <option value="Laki-laki">Laki-laki</option>
+                        <option value="Perempuan">Perempuan</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="no_identitas">Nomor Identitas (16 digit):</label>
+                    <input type="text" class="form-control" id="no_identitas" name="no_identitas" minlength="16" maxlength="16" required>
+                </div>
+                <div class="form-group">
+                    <label for="tipe_kamar">Tipe Kamar:</label>
+                    <select id="tipe_kamar" name="tipe_kamar" class="form-control" onchange="updateRoomPrice()">
+                        <option value="Standard" data-harga="1000000">Standard</option>
+                        <option value="Deluxe" data-harga="1500000">Deluxe</option>
+                        <option value="Suite" data-harga="2500000">Suite</option>
+                      </select>
+                      
+                </div>
+                <div class="form-group">
+                    <label for="harga">Harga:</label>
+                    <input type="text" class="form-control" id="harga" name="harga" readonly>
+                </div>
+                <div class="form-group">
+                    <label for="tanggal_pesan">Tanggal Pesan:</label>
+                    <input type="date" class="form-control" id="tanggal_pesan" name="tanggal_pesan" required>
+                </div>
+                <div class="form-group">
+                    <label for="durasi_menginap">Durasi Menginap (hari):</label>
+                    <input type="number" class="form-control" id="durasi_menginap" name="durasi_menginap" required min="1" oninput="calculateTotal()">
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" id="breakfast" name="breakfast" value="80000" onchange="calculateTotal()">
+                    <label for="breakfast">Breakfast (Tambahan Rp. 80,000)</label>
+                </div>
+                <div class="form-group">
+                    <label for="total_tagihan">Total Tagihan:</label>
+                    <input type="text" class="form-control" id="total_tagihan" name="total_tagihan" readonly>
+                </div>
+                <button type="submit" class="btn">Kirim</button>
+                <button type="close" class="btn2" onclick="window.location.href='index.html'">Cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function updateRoomPrice() {
+            // Ambil tipe kamar yang dipilih dan harga dari atribut data-harga
+            var selectedOption = document.getElementById('tipe_kamar').selectedOptions[0];
+            var harga = selectedOption.getAttribute('data-harga');
+            
+            // Tampilkan harga di input harga
+            document.getElementById('harga').value = `Rp. ${parseInt(harga).toLocaleString('id-ID')}`;
+            
+            // Perbarui total tagihan setelah harga diperbarui
+            calculateTotal();
+
+        // Perbarui gambar berdasarkan tipe kamar yang dipilih
+        var tipeKamar = selectedOption.value;
+        var imageElement = document.getElementById('gambar_kamar');
+        if (tipeKamar) {
+            imageElement.src = `assets/${tipeKamar}.avif`; // Mengubah gambar sesuai dengan tipe kamar
+        } else {
+            imageElement.src = 'default.jpg'; // Gambar default jika tipe kamar tidak ditemukan
+        }
+
+        }
+    
+        function calculateTotal() {
+            // Ambil data harga kamar
+            var selectedOption = document.getElementById('tipe_kamar').selectedOptions[0];
+            var hargaKamar = parseInt(selectedOption.getAttribute('data-harga')) || 0;
+    
+            // Ambil durasi menginap
+            var durasiMenginap = parseInt(document.getElementById('durasi_menginap').value) || 0;
+    
+            // Periksa apakah sarapan dipilih
+            var breakfast = document.getElementById('breakfast').checked ? parseInt(document.getElementById('breakfast').value) : 0;
+    
+            // Hitung total tagihan
+            var totalTagihan = (hargaKamar + breakfast) * durasiMenginap;
+    
+            // Tampilkan total tagihan
+            document.getElementById('total_tagihan').value = `Rp. ${totalTagihan.toLocaleString('id-ID')}`;
+        }
+    
+        function submitForm(event) {
+            // Cegah pengiriman form default
+            event.preventDefault();
+    
+            // Ambil nilai dari formulir
+            var nama = document.getElementById('nama_pemesan').value.trim();
+            var jenisKelamin = document.getElementById('jenis_kelamin').value;
+            var noIdentitas = document.getElementById('no_identitas').value.trim();
+            var tipeKamar = document.getElementById('tipe_kamar').value;
+            var harga = document.getElementById('harga').value;
+            var tanggalPesan = document.getElementById('tanggal_pesan').value;
+            var durasiMenginap = document.getElementById('durasi_menginap').value;
+            var breakfast_status = document.getElementById('breakfast').value;
+            var totalTagihan = document.getElementById('total_tagihan').value;
+    
+            // Validasi input
+            if (!nama || !noIdentitas || !tanggalPesan || durasiMenginap <= 0) {
+                alert("Harap lengkapi semua data dengan benar.");
+                return;
+            }
+    
+            // Redirect ke halaman resume dengan query parameters
+            var url = `resume-pemesanan.html?nama_pemesan=${encodeURIComponent(nama)}&jenis_kelamin=${encodeURIComponent(jenisKelamin)}&no_identitas=${encodeURIComponent(noIdentitas)}&tipe_kamar=${encodeURIComponent(tipeKamar)}&harga=${encodeURIComponent(harga)}&tanggal_pesan=${encodeURIComponent(tanggalPesan)}&durasi_menginap=${encodeURIComponent(durasiMenginap)}&total_tagihan=${encodeURIComponent(totalTagihan)}`;
+            window.location.href = url;
+        }
+    </script>
+    
+    
+    
+</body>
+</html>

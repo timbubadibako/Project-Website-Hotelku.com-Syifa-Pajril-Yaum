@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pup up overlay</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+
+
+div.blur__popup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: rgba(255, 0, 0, 0.5); /* Warna merah dengan transparansi */
+  backdrop-filter: blur(10px);
+}
+
+.blur__popup .overlay {
+  position: relative; 
+  margin: auto; 
+  width: calc(100% - 6rem);
+  padding: 3rem 2rem;
+  border-radius: 2rem;
+  background-color: var(--book-container);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  /* flex-direction: column; */
+} 
+
+.overlay form {
+  width: 100%;
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.overlay .input__group {
+  width: 100%;
+  position: relative;
+  color: var(--white);
+}
+
+.overlay label {
+  /* background-color: var(--white); */
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-20%);
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.overlay input {
+  width: 100%;
+  padding: 12px 0;
+  font-size: 1rem;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  border-top: 1px solid var(--primary-color); /* Garis berada di atas input */
+  color: var(--text-primary-color);
+  margin-top: 1.5rem; /* Memberikan ruang untuk label di atas */
+}
+
+.overlay input:focus ~ label {
+  font-size: 1rem;
+  top: 5rem;
+  display: block;
+}
+
+#input_hide {
+  color: transparent;
+}
+#input_hide:focus {
+  font-size: 1rem;
+  color: var(--text-dark);
+}
+
+.overlay .form__group p {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: var(--text-dark);
+}
+
+.overlay .btn {
+  padding: 2rem;
+  outline: none;
+  border: none;
+  font-size: 1.5rem;
+  color: white;
+  background-color: var(--primary-color);
+  border-radius: 100%;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.overlay .btn:hover {
+  background-color: var(--primary-color-dark);
+  transform: scale(1.1);
+  box-shadow: rgba(0, 0, 0, 0.2);
+}
+
+    
+    /* Styling untuk elemen <select> */
+
+      .overlay .btn2 {
+        display: flex;
+  padding: 1rem;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  color: white;
+  background-color: var(--primary-color);
+  border-radius: 10rem;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  justify-content: center;
+}
+
+.overlay select {
+  width: 100%;
+  padding: 12px 0;
+  font-size: 1rem;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  border-top: 1px solid var(--primary-color); /* Garis berada di atas select */
+  color: var(--text-primary-color);
+  margin-top: 1.5rem; /* Memberikan ruang untuk label di atas */
+  -webkit-appearance: none; /* Menghilangkan gaya default untuk select pada beberapa browser */
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Tambahkan styling untuk label select */
+.overlay .input__group.select__group {
+  position: relative;
+}
+
+.overlay .button_grup {
+  display: grid;
+  grid-template-columns: 1fr; /* Tombol di atas dan bawah di desktop */
+  gap: 2rem;
+}
+
+@media (max-width: 800px) {
+  .overlay form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .overlay {
+        flex-direction: column; /* Ubah layout menjadi vertikal */
+    }
+
+  .overlay .button_grup{
+    grid-template-columns: 1fr 1fr;
+    justify-content: left;
+  }
+}
+
+@media (max-width: 600px) {
+  .overlay form {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+.overlay .input__group.select__group::after {
+  content: '\f0d7'; /* Ikon panah dropdown (dengan font awesome atau font-icon lainnya) */
+  font-family: "Font Awesome 5 Free";
+  position: absolute;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+  font-weight: 900;
+  color: var(--text-dark);
+  pointer-events: none;
+}
+
+/* Styling saat select terfokus */
+.overlay select:focus {
+  border-top: 2px solid var(--primary-color); /* Menambah ketebalan garis atas saat fokus */
+}
+
+/* Styling untuk opsi (option) di dalam select */
+.overlay select option {
+  background-color: var(--white);
+  color: var(--text-primary-color);
+  padding: 1rem;
+  font-size: 1rem;
+  border: none;
+  text-align: left;
+}
+
+/* Styling untuk pilihan yang dipilih */
+.overlay select option:checked {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+  </style>
+</head>
+<body></body>
+
+<div class="blur__popup">  
+  <div class="overlay">
+    <form method="POST" id="bookingForm">
+      <div class="form__group">
+        <p>Nama Pemesan</p>
+        <div class="input__group">
+          <input type="text" name="nama_pemesan" id="nama_pemesan" required />
+          <label for="nama_pemesan">Nama Pemesan</label>
+        </div>
+      </div>
+  
+      <div class="form__group">
+        <p>Jenis Kelamin</p>
+        <div class="input__group">
+          <select name="jenis_kelamin" id="jenis_kelamin" required>
+            <option value="" disabled selected>Jenis Kelamin</option>
+            <option value="Laki-laki">Laki-laki</option>
+            <option value="Perempuan">Perempuan</option>
+          </select>
+          <label for="jenis_kelamin">Jenis Kelamin</label>
+        </div>
+      </div>
+  
+      <div class="form__group">
+        <p>Nomor Identitas</p>
+        <div class="input__group">
+          <input type="text" name="no_identitas" id="no_identitas" minlength="16" maxlength="16" required />
+          <label for="no_identitas">Nomor Identitas (16 digit)</label>
+        </div>
+      </div>
+  
+      <div class="form__group">
+        <p>Lokasi (Tipe Kamar)</p>
+        <div class="input__group">
+          <select name="tipe_kamar" id="tipe_kamar" required>
+            <option value="" disabled selected>Pilih Tipe Kamar</option>
+            <option value="Standard">Standard</option>
+            <option value="Deluxe">Deluxe</option>
+            <option value="Suite">Suite</option>
+          </select>
+          <label for="tipe_kamar">Tipe Kamar</label>
+        </div>
+      </div>
+  
+      <div class="form__group">
+        <p>Check In</p>
+        <div class="input__group">
+          <input type="date" name="check_in" id="check_in" required />
+          <label for="check_in">Check In</label>
+        </div>
+      </div>
+  
+      <div class="form__group">
+        <p>Check Out</p>
+        <div class="input__group">
+          <input type="date" name="check_out" id="check_out" required />
+          <label for="check_out">Check Out</label>
+        </div>
+      </div>
+  
+      <div class="form__group">
+        <p>Durasi Menginap (hari)</p>
+        <div class="input__group">
+          <input type="number" name="durasi_menginap" id="durasi_menginap" required min="1" />
+          <label for="durasi_menginap">Durasi Menginap</label>
+        </div>
+      </div>
+  
+      <div class="form__group">
+        <p>Jumlah Tamu</p>
+        <div class="input__group">
+          <input type="number" name="guests" id="guests" required min="1" />
+          <label for="guests">Guests</label>
+        </div>
+      </div>
+  
+    </form>
+    <div class="button_grup">
+      <button class="btn2" type="submit">
+        <i class="ri-search-line"></i> Pesan Sekarang
+      </button>
+      <button class="btn2" type="submit">
+        <i class="ri-search-line"></i> Pesan Sekarang
+      </button>
+    </div>
+  </div>
+</div>
+  <script>
+    const toggleDarkMode = document.getElementById('darkModeToggle');
+
+    toggleDarkMode.addEventListener('change', function () {
+      const root = document.documentElement;
+
+      if (this.checked) {
+        alert("Toggle Aktif! Mode Gelap Dihidupkan.");
+        root.style.setProperty('--background-color', '#121212');
+        root.style.setProperty('--text-color', '#ffffff');
+        root.style.setProperty('--primary-color', '#1e90ff');
+      } else {
+        root.style.setProperty('--background-color', '#ffffff');
+        root.style.setProperty('--text-color', '#000000');
+        root.style.setProperty('--primary-color', '#007bff');
+      }
+    });
+  </script>
+</body>
+</html>

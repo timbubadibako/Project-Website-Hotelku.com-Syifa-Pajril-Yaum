@@ -1,0 +1,163 @@
+<style>
+
+/* Mengatur margin dan padding umum */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Container utama */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Menata kolom gambar dan form */
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Gambar Kamar */
+img.img-fluid {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+/* Menata form */
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+}
+
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.btn {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #218838;
+}
+
+/* Responsif untuk perangkat mobile */
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+    }
+
+    .col-md-6 {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+
+</style>
+
+<div class="container">
+    <div class="row">
+      <!-- Gambar Kamar -->
+      <div class="col-md-6">
+        <img src="gambar_kamar.jpg" alt="Kamar Hotel" class="img-fluid rounded">
+      </div>
+  
+      <!-- Form Pemesanan -->
+      <div class="col-md-6">
+        <h2>Form Pemesanan Kamar</h2>
+        <form>
+          <!-- Nama Pemesan -->
+          <div class="form-group">
+            <label for="nama_pemesan">Nama Pemesan:</label>
+            <input type="text" id="nama_pemesan" class="form-control" required>
+          </div>
+  
+          <!-- Jenis Kelamin -->
+          <div class="form-group">
+            <label>Jenis Kelamin:</label><br>
+            <input type="radio" id="laki_laki" name="jenis_kelamin" value="laki_laki" required>
+            <label for="laki_laki">Laki-laki</label>
+            <input type="radio" id="perempuan" name="jenis_kelamin" value="perempuan" required>
+            <label for="perempuan">Perempuan</label>
+          </div>
+  
+          <!-- Nomor Identitas -->
+          <div class="form-group">
+            <label for="nomor_identitas">Nomor Identitas (16 digit):</label>
+            <input type="text" id="nomor_identitas" class="form-control" required>
+          </div>
+  
+          <!-- Tipe Kamar -->
+          <div class="form-group">
+            <label for="tipe_kamar">Tipe Kamar:</label>
+            <select id="tipe_kamar" class="form-control" required>
+              <option value="standard">Standard</option>
+              <option value="deluxe">Deluxe</option>
+              <option value="suite">Suite</option>
+            </select>
+          </div>
+  
+          <!-- Harga -->
+          <div class="form-group">
+            <label for="harga">Harga:</label>
+            <input type="text" id="harga" class="form-control" value="Rp. 500.000" disabled>
+          </div>
+  
+          <!-- Tanggal Pesan -->
+          <div class="form-group">
+            <label for="tanggal_pesan">Tanggal Pesan:</label>
+            <input type="date" id="tanggal_pesan" class="form-control" required>
+          </div>
+  
+          <!-- Durasi Menginap -->
+          <div class="form-group">
+            <label for="durasi_menginap">Durasi Menginap (hari):</label>
+            <input type="number" id="durasi_menginap" class="form-control" required>
+          </div>
+  
+          <!-- Opsi Tambahan -->
+          <div class="form-group">
+            <label>
+              <input type="checkbox" id="breakfast" value="80.000">
+              Breakfast (Tambahan Rp. 80.000)
+            </label>
+          </div>
+  
+          <!-- Total Tagihan -->
+          <div class="form-group">
+            <label for="total_tagihan">Total Tagihan:</label>
+            <input type="text" id="total_tagihan" class="form-control" disabled>
+          </div>
+  
+          <!-- Tombol Kirim -->
+          <button type="submit" class="btn btn-success">Kirim</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  

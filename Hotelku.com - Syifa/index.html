@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.4.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Tugas Project PWEB 1 | Hotelku.com</title>
+  </head>
+  <body>
+    <!-- Logo kiri -- remixicon.css -->
+    <nav>
+      <div class="nav__logo" onclick="window.location.href='login.html'"> 
+        <i class="ri-hotel-fill"></i>   Hotelku.com
+      </div>
+    <!-- end -->
+
+      <!-- hamburger menu -- untuk mobile -->
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <!-- end -->
+      <!-- Navbar link -- sebelah kanan -->
+      <ul class="nav__links">
+        <li class="link" onclick="window.location.href='index.html'"><a href="#home">Home</a></li>
+        <li class="link" ><a href="#rooms">Rooms</a></li>
+        <li class="link" ><a href="#about">Dining</a></li>
+        <li class="link" ><a href="#Facilities">Facilities</a></li>
+        <li class="link" onclick="window.location.href='form-pemesanan.html'"><a href="#Booking">Booking</a></li>
+        <li class="link" onclick="window.location.href='login.html'"><a href="#Login">Login</a></li>
+      <!-- end -->
+      <!-- Darkmode Button -->
+        <input type="checkbox" id="tombol">
+          <div class="nav__button">
+            <label class="button" for="tombol" id="tombol">
+              <div class="circle">
+                <svg class="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z" />
+                </svg>
+                <svg class="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path fill-rule="evenodd" d="M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9 8.97 8.97 0 0 0 3.463-.69.75.75 0 0 1 .981.98 10.503 10.503 0 0 1-9.694 6.46c-5.799 0-10.5-4.7-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 0 1 .818.162Z" clip-rule="evenodd" />
+                </svg>                               
+              </div>
+            </label>
+          </div>  
+      </ul>
+    </nav>    
+    <!-- end -->
+
+    <!-- Header Image dan teks -->
+    <header class="section__container header__container">
+      <div class="header__image__container">
+        <div class="header__content">
+          <h1>Enjoy Your Dream Vacation</h1>
+          <p>Book Hotels, Flights and stay packages at lowest price.</p>
+        </div>
+    <!-- end -->
+    
+    <!-- Avilability check -->
+        <div class="booking__container">
+          <form method="" id="bookingForm1" class="booking2">
+            <div class="form__group">
+              <p>Customer's Name</p>
+              <div class="input__group">
+                <input type="text" name="nama_pemesan" id="input_hide" required />
+                <label for="nama_pemesan">Customer's Name</label>
+                </div>
+            </div>
+            
+            <div class="form__group">
+              <p>Add Check in date</p>
+              <div class="input__group">
+                <input type="date" name="check_in" id="input_hide" required />
+                <label for="check_in">Check In</label>
+              </div>
+            </div>
+
+            <div class="form__group">
+              <p>Add Check out date</p>
+              <div class="input__group">
+                <input type="date" name="check_out" id="input_hide" required />
+                <label for="check_out">Check Out</label>
+              </div>
+            </div>
+
+            <div class="form__group">
+              <p>Add guests</p>
+              <div class="input__group">
+                <input type="number" name="guests" id="input_hide" required min="1"/>
+                <label for="guests">Guests</label>
+              </div>
+            </div>
+            <button class="btn" type="submit" onclick="window.location.href='form-pemesanan.html'">
+              <i class="ri-search-line">
+              </i>
+            </button>
+          </form>
+        </div>        
+      </div>
+      <!-- end -->
+
+    </header>
+
+    <!-- section fasilitas -->
+    <section class="section__container popular__container">
+      <h2 class="section__header">Facilities</h2>
+      <div class="popular__grid">
+        <div class="popular__card">
+          <img src="assets/ballroom.jpg" alt="Ballroom" />
+          <div class="popular__content">
+            <div class="popular__card__header">
+              <h4>The Grand Ballroom</h4>
+              <!-- <h4></h4> -->
+            </div>
+            <p>Luxurious ballroom with modern amenities, perfect for events and conferences.</p>
+          </div>
+        </div>
+    
+        <div class="popular__card">
+          <img src="assets/fitness.jpg" alt="Fitness Center" />
+          <div class="popular__content">
+            <div class="popular__card__header">
+              <h4>Fitness center</h4>
+              <!-- <h4></h4> -->
+            </div>
+            <p>State-of-the-art fitness center equipped with the latest equipment for a complete workout.</p>
+          </div>
+        </div>
+    
+        <div class="popular__card">
+          <img src="assets/resaurant.jpg" alt="Restaurant" />
+          <div class="popular__content">
+            <div class="popular__card__header">
+              <h4>The Grand Resto</h4>
+              <!-- <h4></h4> -->
+            </div>
+            <p>World-class dining experience with gourmet dishes prepared by renowned chefs.</p>
+          </div>
+        </div>
+    
+        <div class="popular__card">
+          <img src="assets/pool.jpg" alt="Swimming Pool" />
+          <div class="popular__content">
+            <div class="popular__card__header">
+              <h4>Atlantis Pool</h4>
+              <!-- <h4></h4> -->
+            </div>
+            <p>Infinity swimming pool with breathtaking views, perfect for relaxation.</p>
+          </div>
+        </div>
+    
+        <div class="popular__card">
+          <img src="assets/spa.jpg" alt="Spa" />
+          <div class="popular__content">
+            <div class="popular__card__header">
+              <h4>Luxurious Spa</h4>
+              <!-- <h4></h4> -->
+            </div>
+            <p>Luxurious spa offering rejuvenating treatments for mind and body relaxation.</p>
+          </div>
+        </div>
+    
+        <div class="popular__card">
+          <img src="assets/dream.jpg" alt="Dream Stay" />
+          <div class="popular__content">
+            <div class="popular__card__header">
+              <h4>Dream Wedding Concept</h4>
+              <!-- <h4></h4> -->
+            </div>
+            <p>Experience unmatched luxury and comfort with stunning city skyline views.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- end -->
+
+    <!-- section review -->
+    <section class="client">
+      <div class="section__container client__container">
+        <h2 class="section__header">What our client say</h2>
+        <div class="client__grid">
+          <div class="client__card">
+            <img src="assets/client-1.jpg" alt="client" />
+            <p>
+              "Pelayanan di hotel ini luar biasa, stafnya ramah dan selalu 
+              siap membantu setiap kebutuhan kami. Kamarnya bersih, nyaman, 
+              dan dilengkapi fasilitas lengkap."
+            </p>
+          </div>
+
+          <div class="client__card">
+            <img src="assets/client-2.jpg" alt="client" />
+            <p>
+              "Lokasi strategis di pusat kota memudahkan akses ke berbagai 
+              tempat wisata, ditambah sarapan pagi yang lezat dengan banyak
+              pilihan menu." 
+            </p>
+          </div>
+          
+          <div class="client__card">
+            <img src="assets/client-3.jpg" alt="client" />
+            <p>
+              "Pengalaman menginap yang menyenangkan, pemandangan dari kamar 
+              sangat indah, cocok untuk liburan keluarga atau perjalanan bisnis."
+              </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end -->
+
+    <!-- section offers -->
+    <section class="section__container">
+      <div class="reward__container">
+        <p>50% OFF !!!</p>
+        <h4>Klik untuk dapatkan penawaran terbaik</h4>
+        <button class="reward__btn">Berlangganan</button>
+      </div>
+    </section>
+    <!-- end -->
+
+    <!-- overlay -->
+    <!-- <div class="blur__popup" id="overlay" style="visibility: hidden;">  
+      <div class="overlay">
+        <form method="" id="bookingForm2" class="booking2">
+          <div class="form__group">
+            <p>Customer's Name</p>
+            <div class="input__group">
+              <input type="text" name="nama_pemesan" id="input_hide" required />
+              <label for="nama_pemesan">Customer's Name</label>
+            </div>
+          </div>
+      
+          <div class="form__group">
+            <p>Gender</p>
+            <div class="input__group">
+              <select name="jenis_kelamin" id="input_hide" required>
+                <option value="" disabled selected>Gender</option>
+                <option value="Laki-laki">Laki-laki</option>
+                <option value="Perempuan">Perempuan</option>
+              </select>
+              <label for="jenis_kelamin">Gender</label>
+            </div>
+          </div>
+      
+          <div class="form__group">
+            <p>Number Identity</p>
+            <div class="input__group">
+              <input type="text" name="no_identitas" id="input_hide" minlength="16" maxlength="16" required />
+              <label for="no_identitas">Number Identity (16 digit)</label>
+            </div>
+          </div>
+      
+          <div class="form__group">
+            <p>Lokasi (Room's Type)</p>
+            <div class="input__group">
+              <select name="tipe_kamar" id="input_hide" required>
+                <option value="" disabled selected>Pilih Room's Type</option>
+                <option value="Standard">Standard</option>
+                <option value="Deluxe">Deluxe</option>
+                <option value="Suite">Suite</option>
+              </select>
+              <label for="tipe_kamar">Room's Type</label>
+            </div>
+          </div>
+      
+          <div class="form__group">
+            <p>Check In</p>
+            <div class="input__group">
+              <input type="date" name="check_in" id="input_hide" required />
+              <label for="check_in">Check In</label>
+            </div>
+          </div>
+      
+          <div class="form__group">
+            <p>Check Out</p>
+            <div class="input__group">
+              <input type="date" name="check_out" id="input_hide" required />
+              <label for="check_out">Check Out</label>
+            </div>
+          </div>
+      
+          <div class="form__group">
+            <p>Durasi Menginap (hari)</p>
+            <div class="input__group">
+              <input type="number" name="durasi_menginap" id="input_hide" required min="1" />
+              <label for="durasi_menginap">Durasi Menginap</label>
+            </div>
+          </div>
+      
+          <div class="form__group">
+            <p>Jumlah Tamu</p>
+            <div class="input__group">
+              <input type="number" name="guests" id="input_hide" required min="1" />
+              <label for="guests">Guests</label>
+            </div>
+          </div>
+      
+          <button class="btn1" type="submit">
+            <i class=""></i> Pesan
+          </button>
+          <button class="btn2" type="close" onclick="closePopup()">
+            <i class=""></i> Close
+          </button>  
+        </form>
+          </div>
+      </div>
+    </div> -->
+    <!-- end -->
+
+    <!-- section footer -->
+    <footer class="footer">
+      <div class="section__container footer__container">
+        <div class="footer__col">
+          <h3>Hotelku.com - Syifa</h3>
+          <p>
+            Hotelku.com adalah hotel terbaik yang berada di indonesia, 
+            Rasakan pengalaman yang belum pernah anda temukan sebelumnya.
+          </p>
+          <p>
+            Kami menyediakan kamar dengan kualitas terbaik, dengan kebersihan
+            yang maksimal, serta fasilitas terlengkap. Cepat booking sekarang, 
+            dan temukan pengalaman terbaik bersama kami.
+          </p>
+        </div>
+        <div class="footer__col">
+          <h4>Company</h4>
+          <p>About Us</p>
+          <p>Our Team</p>
+          <p>Book</p>
+          <p>Contact Us</p>
+        </div>
+        <div class="footer__col">
+          <h4>Legal</h4>
+          <p>FAQs</p>
+          <p>Terms & Conditions</p>
+          <p>Privacy Policy</p>
+        </div>
+        <div class="footer__col">
+          <h4>Resources</h4>
+          <p>Social Media</p>
+          <p>Help Center</p>
+          <p>Partnerships</p>
+        </div>
+      </div>
+      <div class="footer__bar">
+        Copyright © 2025 Syifa Pajril Yaum. All rights reserved.
+      </div>
+    </footer>
+    <!-- end -->
+  </body>
+</html>
